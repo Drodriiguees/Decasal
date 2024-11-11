@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,11 +31,11 @@ public class Convite {
     @Enumerated(EnumType.STRING)
     private StatusConvite status;
 
-    @ManyToAny
+    @ManyToOne
     @JoinColumn(name = "convidado_id")
     private Usuario convidado;
 
-    @ManyToAny
+    @ManyToOne
     @JoinColumn(name = "convidante_id")
     private Usuario convidante;
     

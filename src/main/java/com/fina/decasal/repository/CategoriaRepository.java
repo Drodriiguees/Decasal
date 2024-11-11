@@ -8,5 +8,5 @@ import com.fina.decasal.model.Categoria;
 
 public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
 
-    List<Categoria> listarcat(Long id);
+    List<Categoria> findByNome(String nome);
 }

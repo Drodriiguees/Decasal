@@ -14,5 +14,9 @@ public class CategoriaMapper {
         return new CategoriaDTO(categoria.getNome(), despesaIds);
     }
         
+
+    public static List <CategoriaDTO> toList (List<Categoria> categorias){
+        return categorias.stream().map(CategoriaMapper::toDTO).collect(Collectors.toList());
+    }
     }
 

@@ -33,6 +33,6 @@ public class CategoriaService {
     }
 
     public List<Categoria> Listar (Long id){
-        return repository.listarcat(id);
+        return repository.findByNome(null);
     }
 }
