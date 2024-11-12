@@ -1,5 +1,7 @@
 package com.fina.decasal.model;
 
+import com.fina.decasal.enums.UsuarioRole;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +26,7 @@ public class Usuario {
     private String email;
     private String senha;
 
-    @OneToOne
-    @JoinColumn(name = "conjuge_id")
-    private Usuario conjuge;
+   
+    private UsuarioRole role;
 
 }

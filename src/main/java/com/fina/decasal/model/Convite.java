@@ -1,6 +1,5 @@
 package com.fina.decasal.model;
 
-import org.hibernate.annotations.ManyToAny;
 
 import com.fina.decasal.enums.StatusConvite;
 

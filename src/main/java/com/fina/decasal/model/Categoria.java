@@ -25,6 +25,5 @@ public class Categoria {
     
     String nome;
     
-     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    private List<Despesa> despesas;
+    
 }

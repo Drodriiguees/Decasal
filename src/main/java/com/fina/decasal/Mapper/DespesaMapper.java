@@ -15,7 +15,7 @@ public class DespesaMapper {
     despesa.getId(),
     despesa.getDescricao(),
     despesa.getValor(),
-    despesa.getDatahora(), 
+    despesa.getData(), 
     despesa.getCategoria().getId(),
     despesa.getPagador().getId()
   

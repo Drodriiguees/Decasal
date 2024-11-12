@@ -25,7 +25,7 @@ public class Despesa {
 
    private String descricao;
    private Double valor;
-   private Date datahora;
+   private Date data;
 
    @ManyToOne
    @JoinColumn(name = "categoria_id")
