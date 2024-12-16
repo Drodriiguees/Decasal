@@ -30,6 +30,16 @@ public class DespesaService {
         return repository.save(novaDespesa);
     }
 
+    public Categoria buscarCategoriaPorId(Long categoriaId) {
+        return categoriaRepository.findById(categoriaId)
+                .orElseThrow(() -> new RuntimeException("Categoria não encontrada"));
+    }
+
+    public Usuario buscarUsuarioPorId(Long usuarioId) {
+        return usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    }
+
     public void deletar(Long id){
          repository.deleteById(id);
     }

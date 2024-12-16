@@ -10,7 +10,7 @@ public class UsuarioMapper {
             return null;
         }
         return new UsuarioDTO( 
-        usuario.getNome(),
+        null, usuario.getNome(),
         usuario.getEmail(),
         usuario.getRole()
         );

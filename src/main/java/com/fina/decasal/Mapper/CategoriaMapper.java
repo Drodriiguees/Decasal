@@ -9,7 +9,7 @@ import com.fina.decasal.model.Categoria;
 public class CategoriaMapper {
 
     public static CategoriaDTO toDTO (Categoria categoria){
-        return new CategoriaDTO(categoria.getNome());
+        return new CategoriaDTO(null, categoria.getNome());
     }
         
 

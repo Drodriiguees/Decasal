@@ -1,6 +1,6 @@
 package com.fina.decasal.DTO;
 
 
-public record CategoriaDTO(String nome) {
+public record CategoriaDTO(Long id ,String nome) {
 
 }
