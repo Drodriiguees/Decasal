@@ -13,6 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -21,23 +24,30 @@ public class ConfiguracaoSeguranca {
      @Autowired
     SecurityFilter securityFilter;
 
-    @Bean
-    public SecurityFilterChain filtroSeguranca (HttpSecurity http) throws Exception{
-        http
+    @Autowired
+private CorsConfigurationSource corsConfigurationSource;
+
+@Bean
+public SecurityFilterChain filtroSeguranca(HttpSecurity http) throws Exception {
+    http
         .csrf(csrf -> csrf.disable())
+        .cors(cors -> cors.configurationSource(corsConfigurationSource)) // Usando o bean de CORS existente
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(authorize -> authorize
-                 .requestMatchers(HttpMethod.POST,"/auth/cadastrar").permitAll()
-                 .requestMatchers(HttpMethod.POST,"/auth/login").permitAll()
-                 .requestMatchers("/swagger-ui/**").permitAll()
-				 .requestMatchers("/swagger-ui/index.html").permitAll()
-                 .anyRequest().authenticated()
+            .requestMatchers(HttpMethod.POST, "/auth/cadastrar").permitAll()
+            .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+            .requestMatchers(HttpMethod.POST, "/usuarios").permitAll()
 
-        
+            .requestMatchers("/swagger-ui/**").permitAll()
+            .requestMatchers("/swagger-ui/index.html").permitAll()
+            .anyRequest().authenticated()
         )
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
-        return http.build();
-    }
+    return http.build();
+}
+
+
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {

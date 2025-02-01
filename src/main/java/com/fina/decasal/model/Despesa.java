@@ -3,7 +3,6 @@ package com.fina.decasal.model;
 
 import java.util.Date;
 
-import com.fina.decasal.DTO.UsuarioDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

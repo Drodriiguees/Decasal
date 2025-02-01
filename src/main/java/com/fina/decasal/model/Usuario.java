@@ -37,7 +37,6 @@ public class Usuario implements UserDetails {
     private UsuarioRole role;
 
     @Override
-        @JsonIgnore
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(() -> "ROLE_" + this.role.name());
