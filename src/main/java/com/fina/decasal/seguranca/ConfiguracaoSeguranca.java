@@ -38,8 +38,17 @@ public SecurityFilterChain filtroSeguranca(HttpSecurity http) throws Exception {
             .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
             .requestMatchers(HttpMethod.POST, "/usuarios").permitAll()
 
+            .requestMatchers(HttpMethod.GET, "/categoria/**").permitAll() 
+            .requestMatchers(HttpMethod.POST, "/categoria/cadastrar").permitAll()
+
             .requestMatchers("/swagger-ui/**").permitAll()
-            .requestMatchers("/swagger-ui/index.html").permitAll()
+            .requestMatchers("/v3/api-docs/**").permitAll()
+            .requestMatchers("/api-docs/**").permitAll()
+            .requestMatchers("/swagger-ui.html").permitAll()
+            .requestMatchers("/swagger-ui-custom.html").permitAll()
+
+
+
             .anyRequest().authenticated()
         )
         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);

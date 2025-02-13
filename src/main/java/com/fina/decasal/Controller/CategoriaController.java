@@ -25,7 +25,7 @@ public class CategoriaController {
     @Autowired
     CategoriaService service;
 
-    @PostMapping
+    @PostMapping("/cadastrar")
     public Categoria salva(@RequestBody Categoria categoria)  {
     return service.salvar(categoria);     
     }
@@ -35,12 +35,12 @@ public class CategoriaController {
     public void delete(@PathVariable ("id")Long id){
         service.deletar(id);
     }
+  
     
     @GetMapping    
-    public List<CategoriaDTO> listar(){
-        List<Categoria> categorias = service.Listar(null);
+    public List<CategoriaDTO> listar() {
+        List<Categoria> categorias = service.listar(); 
         return CategoriaMapper.toList(categorias);
     }
     
-
 }

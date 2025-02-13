@@ -32,7 +32,8 @@ public class CategoriaService {
      return null;
     }
 
-    public List<Categoria> Listar (Long id){
-        return repository.findByNome(null);
+    public List<Categoria> listar() {
+        return repository.findAll(); 
     }
+    
 }
